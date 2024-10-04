@@ -1,6 +1,5 @@
 #include <string>
 #include <iostream>
-#include <vector>
 #include <random>
 
 #include "ai.h"
