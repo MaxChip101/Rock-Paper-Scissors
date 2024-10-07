@@ -8,6 +8,8 @@
 
 #include "ai.h"
 
+int wins, loses, ties;
+
 std::string input()
 {
     std::string inp_str;
@@ -160,52 +162,66 @@ void round()
     if (choice == '1' && num == 0)
     {
         std::cout << "Tie" << std::endl;
+        ties++;
     }
     // paper - rock
     else if (choice == '2' && num == 0)
     {
         std::cout << "You Win" << std::endl;
+        wins++;
     }
     // scissors - rock
     else if (choice == '3' && num == 0)
     {
         std::cout << "You Lost" << std::endl;
+        loses++;
     }
     // rock - paper
     else if (choice == '1' && num == 1)
     {
         std::cout << "You Lost" << std::endl;
+        loses++;
     }
     // paper - paper
     else if (choice == '2' && num == 1)
     {
         std::cout << "Tie" << std::endl;
+        ties++;
     }
     // scissors - paper
     else if (choice == '3' && num == 1)
     {
         std::cout << "You Win" << std::endl;
+        wins++;
     }
     // rock - scissors
     else if (choice == '1' && num == 2)
     {
         std::cout << "You Win" << std::endl;
+        wins++;
     }
     // paper - scissors
     else if (choice == '2' && num == 2)
     {
         std::cout << "You Lost" << std::endl;
+        loses++;
     }
     // scissors - scissors
     else if (choice == '3' && num == 2)
     {
         std::cout << "Tie" << std::endl;
+        ties++;
     }
     // unexpected result
     else
     {
         std::cout << "Undetermined" << std::endl;
     }
+}
+
+void displayScore()
+{
+    std::cout << "Score: Wins (" << wins << "), Loses (" << loses << "), Ties (" << ties << ")" << std::endl;
 }
 
 int main()
@@ -231,6 +247,7 @@ int main()
     while (true)
     {
         srand(time(NULL));
+        displayScore();
         round();
     }
     
